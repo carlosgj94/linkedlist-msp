@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked Sort</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <center>
+    <header>
+      <h1>Linked Sort!</h1>
+    </header>    
+    
+    <hr>
+        
+    
+    <!--<img src="http://upload.wikimedia.org/wikipedia/commons/9/9c/Single_linked_list.png">-->
+    <p class='info'>Enter the data of the linked list separated just by a ",":</p>
+    <textarea id="input" rows="7" cols="10">2,4,1,8,24,21,5,76,6
+    </textarea>
+    <a role="button" href="#" class="button" onclick="getAndSort()">Sort!</a>
+    <a role="button" href="#" class="button toLeft" onclick="draw()">Draw!</a>
+
+        <div class="canvas" id='canvas'></div>
+        <div class="canvas2" id='canvas2'></div>
+    <a id='result'></a>
+    </center>
+      
+    <script>
+    function getAndSort(){
+           var list=document.getElementById("input").value;
+            var array = list.split(",");
+            var elem = {
+                data:array[0],
+                next:null
+            }
+            for(i in array){
+                if(i!=0){
+                    addNode(elem, parseInt(array[i]));   
+                }
+            }
+            printElements(elem);
+            sort(elem);
+            printElements(elem);
+    }
+    function draw(){
+        var list=document.getElementById("input").value;
+            var array = list.split(",");
+            var elem = {
+                data:array[0],
+                next:null
+            }
+            for(i in array){
+                if(i!=0){
+                    addNode(elem, parseInt(array[i]));   
+                }
+            }
+            drawList(elem);
+            sortAndDraw(elem);
+    }
+    </script>
+    <script src="draw.js"></script>
+    <script src="linkedsort.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
